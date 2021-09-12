@@ -24,9 +24,9 @@ android {
 //            getDefaultProguardFile('proguard-android-optimize.txt')
 //            不可以用在 consumerProguardFiles中,所以来个移花接木，改名.pro
             //传递（将被静态依赖的host app 合并）
-//            consumerProguardFiles  'proguard-rules.pro','proguard-android-optimize.pro'
+            consumerProguardFiles  'proguard-rules.pro','proguard-android-optimize.pro'
 //            不传递
-            proguardFiles 'proguard-rules.pro'
+//            proguardFiles 'proguard-rules.pro'
         }
     }
     compileOptions {

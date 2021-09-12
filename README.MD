@@ -1,23 +1,33 @@
-# 混淆规则示范
+# 拒绝敷衍，安卓中的多模块的混淆规则
 
-Gradle plugin 3.4.0  之后 已 使用  R8 编译器协同工作
+Gradle plugin3.4.0之后已使用R8编译器协同工作
 
-就混淆工作而言，可以简单理解为 比proguard优化更好
+就混淆工作而言，可以简单理解为比proguard优化更好
 
-同事根据官方文档，使用R8之后，不应该改动默认
+同时根据官方文档，使用R8之后，不应该改动默认配置，包括优化级别等信息
 
+### 本项目中示范内容如下
+* 一个宿主APP module
+* 一个 libb module
+* 测试混淆开关
+* 测试混淆规则传递
+*
 
-### 四大组件，View 默认已忽略
+### 安卓项目中默认已忽略的内容
+* 四大组件
+* View
+* JavascriptInterface 注解修饰的函数
 
 ### 关于：proguard-android-optimize.txt
 >位于Android\Sdk\tools\proguard
->需要仔细阅读 其已经配置的规则
+需要仔细阅读 其已经配置的规则
+
 主要需要注意的是：
 * enum 类
 * R文件
-* native
+* native 就是JNI 相关
 * Activity内的用xml的 onClick
-* JavascriptInterface 注解修饰的函数
+
 
 ### 静态依赖 lib>host  混淆开关测试
 * 全部关闭混淆 ：不混淆
@@ -35,6 +45,8 @@ Gradle plugin 3.4.0  之后 已 使用  R8 编译器协同工作
 
 ### 静态依赖 lib>host 如何单独配置混淆规则，使用 consumer-rules
 
+consumerProguardFiles 配置的混淆将被传递合并给宿主APP module
+
 在 library module 下的 proguardFiles 并不会生效
 
 每个library使用 consumer-rules更多的是为了
@@ -49,11 +61,37 @@ proguard-android-optimize.pro 来自 proguard-android-optimize.txt
 
 
 
-### 混淆规则1 开白型
+### 混淆规则方式1 开白型
 
-以 -keep 关键字开头，除了被keep的类或成员 其余全部混淆
+默认全混淆，对-keep 规则下的进行开白，不混淆
+
+通常都是以此形式配置
 
 
+### 混淆规则方式2 拉黑型 ：不建议在模块化跟组件化的项目中使用
 
-### 混淆规则2 拉黑型
+* 通常拉黑型规则放在最后一行！！！！！，且不要放在 library module中 避免成为害群之马
+
+对keep的逆向使用，默认保留全部类与成员，排除!条件下的不进行保留
+
+示范：
+```json
+-keep class !com.z.optcode.**,**{*;}
+```
+
+当前项目中在
+
+* app module下添加混淆 当前包下全部内容
+```log
+-keep class !com.z.optcode.**,**{*;}
+```
+
+* libb module下添加混淆 当前包下全部内容
+```log
+-keep class !com.opt.libb.**,**{*;}
+```
+
+* 结果
+最终生效的是app 内配置的规则
+
 
