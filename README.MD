@@ -29,7 +29,7 @@ Gradle plugin3.4.0之后已使用R8编译器协同工作
 * Activity内的用xml的 onClick
 
 
-### 静态依赖 lib>host  混淆开关测试
+### 静态依赖 library_module>app  混淆开关测试
 * 全部关闭混淆 ：不混淆
 
 * lib 开启,host 关闭：全部不混淆
@@ -43,7 +43,7 @@ Gradle plugin3.4.0之后已使用R8编译器协同工作
    }
 ```
 
-### 静态依赖 lib>host 如何单独配置混淆规则，使用 consumer-rules
+### 静态依赖 library_module>app 如何单独配置混淆规则，使用 consumer-rules
 
 consumerProguardFiles 配置的混淆将被传递合并给宿主APP module
 
@@ -52,7 +52,7 @@ consumerProguardFiles 配置的混淆将被传递合并给宿主APP module
 -keep class **.**.AppInfo{*;}
 ```
 
-相比较 在 library module 下的 proguardFiles 并不会生效
+**静态依赖中在library_module下的 proguardFiles 并不会生效**
 
 每个library使用 consumer-rules更多的是为了
 * 1.方便管理
@@ -64,7 +64,7 @@ consumerProguardFiles 配置的混淆将被传递合并给宿主APP module
 ```
 proguard-android-optimize.pro 来自 proguard-android-optimize.txt
 
-
+后文会记录独立发布中避免丢失proguard-android-optimize.txt规则~
 
 ### 混淆规则方式1 开白型
 
@@ -99,4 +99,4 @@ proguard-android-optimize.pro 来自 proguard-android-optimize.txt
 * 结果
 最终生效的是app 内配置的规则,library_module 下的类被混淆
 
-
+### 对于library_module 进度独立发布时，混淆配置的方式
