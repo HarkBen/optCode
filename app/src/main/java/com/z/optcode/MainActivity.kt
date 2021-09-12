@@ -27,6 +27,11 @@ class MainActivity : AppCompatActivity() {
         vb.btnLibBActivity.setOnClickListener {
             startActivity(Intent(this,LibBActivity::class.java))
         }
+
+        vb.btnOutWithXMlActivity.setOnClickListener {
+            startActivity(Intent(this,OutWithXMlActivity::class.java))
+        }
+
         val km = LibMessage()
         "km:${km::class.java.simpleName}".log()
         vb.btnKotlinReflection.setOnClickListener {

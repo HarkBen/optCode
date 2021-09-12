@@ -43,5 +43,9 @@
         android:layout_width="match_parent"
         android:text="btnJavaReflection"
         android:layout_height="wrap_content"/>
-
+    <Button
+        android:id="@+id/btnOutWithXMlActivity"
+        android:layout_width="match_parent"
+        android:text="btnOutWithXMlActivity"
+        android:layout_height="wrap_content"/>
 </LinearLayout>
