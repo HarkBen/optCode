@@ -47,11 +47,12 @@ Gradle plugin3.4.0之后已使用R8编译器协同工作
 
 consumerProguardFiles 配置的混淆将被传递合并给宿主APP module
 
-在本次测试项目中，在library_module module 中
+在本次测试项目中，在library_module module 中配置忽略 app module的类
+```log
+-keep class **.**.AppInfo{*;}
+```
 
-
-
-在 library module 下的 proguardFiles 并不会生效
+相比较 在 library module 下的 proguardFiles 并不会生效
 
 每个library使用 consumer-rules更多的是为了
 * 1.方便管理
