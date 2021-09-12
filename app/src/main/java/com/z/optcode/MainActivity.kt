@@ -29,16 +29,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun jsonHost(){
-        val jsonA  = "{\"name\":\"LibBInfo\",\"versionName\":\"1.0\"}"
-        jsonA.log("jsonHost")
-        val appInfoG = gson.fromJson(jsonA,AppInfo::class.java)
-        appInfoG.toString().log("jsonHost")
+        val appInfo = AppInfo("测试混淆APP","1.0")
+        gson.toJson(appInfo).log("host appInfo------")
+        val jsonA  = "{\"name\":\"jsonHost\",\"versionName\":\"1.0\"}"
+        jsonA.log("jsonA--")
+        val appInfoG:AppInfo = gson.fromJson(jsonA,AppInfo::class.java)
+        "$appInfoG".log("appInfoG--")
     }
 
     private fun jsonB(){
-        val jsonA  = "{\"age\":1,\"name\":\"LibBInfo\"}"
-        jsonA.log("jsonB")
-        val libaG = gson.fromJson(jsonA,LibBInfo::class.java)
-        libaG.toString().log("jsonB ")
+        val libBInfo= LibBInfo("库-libB",99)
+        gson.toJson(libBInfo).log("libB libBInfo------")
+        val jsonB  = "{\"age\":1,\"name\":\"LibBInfo\"}"
+        jsonB.log("jsonB--")
+        val libBG:LibBInfo = gson.fromJson(jsonB,LibBInfo::class.java)
+        "$libBG".log("libBG--")
+
     }
 }
