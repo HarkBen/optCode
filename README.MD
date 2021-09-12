@@ -100,3 +100,19 @@ proguard-android-optimize.pro 来自 proguard-android-optimize.txt
 最终生效的是app 内配置的规则,library_module 下的类被混淆
 
 ### 对于library_module 进度独立发布时，混淆配置的方式
+
+对debug 开启混淆：minifyEnabled true
+
+设置规则
+
+```log
+-keep class com.opt.lib.reflection.**{*;}
+```
+
+* 配置为 proguardFiles，执行 assembleDebug
+
+混淆规则生效,reflection 与 Activity 被保留
+
+**但是 View的子类并未被保留**
+
+* 配置为  ，执行 assembleDebug
