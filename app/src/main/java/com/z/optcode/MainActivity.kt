@@ -4,11 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.gson.Gson
-import com.opt.libb.LibBActivity
-import com.opt.libb.utils.LibBUtils
-import com.opt.libb.data.LibBInfo
-import com.opt.libb.reflection.JavaMessage
-import com.opt.libb.reflection.LibMessage
+import com.opt.lib.LibBActivity
+import com.opt.lib.utils.LibBUtils
+import com.opt.lib.data.LibBInfo
+import com.opt.lib.reflection.LibMessage
 import com.z.optcode.data.AppInfo
 import com.z.optcode.databinding.ActivityMainBinding
 
@@ -31,14 +30,14 @@ class MainActivity : AppCompatActivity() {
         val km = LibMessage()
         "km:${km::class.java.simpleName}".log()
         vb.btnKotlinReflection.setOnClickListener {
-            val clzName = "com.opt.libb.reflection.LibMessage"
+            val clzName = "com.optlibreflection.LibMessage"
             val clz = classLoader.loadClass(clzName)
             val obj = clz.newInstance()
             "Reflection:${obj.toString()}".log("btnLibBReflection")
 
         }
         vb.btnJavaReflection.setOnClickListener {
-            val clzName = "com.opt.libb.reflection.JavaMessage"
+            val clzName = "com.optlibreflection.JavaMessage"
             val clz = classLoader.loadClass(clzName)
             val obj = clz.newInstance()
             "Reflection:${obj.toString()}".log("JavaMessage")

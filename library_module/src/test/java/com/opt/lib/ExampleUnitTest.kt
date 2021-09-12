@@ -1,4 +1,4 @@
-package com.opt.libb
+package com.opt.lib
 
 import org.junit.Test
 

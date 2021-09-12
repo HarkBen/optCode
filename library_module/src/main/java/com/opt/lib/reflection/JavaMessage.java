@@ -1,4 +1,4 @@
-package com.opt.libb.reflection;
+package com.opt.lib.reflection;
 
 public class JavaMessage {
     String name = "JavaMessage";

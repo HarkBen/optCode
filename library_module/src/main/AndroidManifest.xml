@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.opt.libb">
+    package="com.opt.lib">
 
     <application>
-        <activity android:name=".LibBActivity"/>
+        <activity android:name="com.opt.lib.LibBActivity"/>
 
     </application>
 </manifest>

@@ -1,8 +1,6 @@
-package com.opt.libb.utils
+package com.opt.lib.utils
 
-import android.content.Context
 import android.util.Log
-import android.widget.Toast
 
 object LibBUtils {
 

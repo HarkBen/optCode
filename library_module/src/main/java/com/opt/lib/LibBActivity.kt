@@ -1,4 +1,4 @@
-package com.opt.libb
+package com.opt.lib
 
 import android.app.Activity
 import android.os.Bundle

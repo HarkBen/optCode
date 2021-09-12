@@ -8,7 +8,7 @@ Gradle plugin3.4.0之后已使用R8编译器协同工作
 
 ### 本项目中示范内容如下
 * 一个宿主APP module
-* 一个 libb module
+* 一个 library_module module
 * 测试混淆开关
 * 测试混淆规则传递
 *
@@ -46,6 +46,10 @@ Gradle plugin3.4.0之后已使用R8编译器协同工作
 ### 静态依赖 lib>host 如何单独配置混淆规则，使用 consumer-rules
 
 consumerProguardFiles 配置的混淆将被传递合并给宿主APP module
+
+在本次测试项目中，在library_module module 中
+
+
 
 在 library module 下的 proguardFiles 并不会生效
 
@@ -86,12 +90,12 @@ proguard-android-optimize.pro 来自 proguard-android-optimize.txt
 -keep class !com.z.optcode.**,**{*;}
 ```
 
-* libb module下添加混淆 当前包下全部内容
+* library_module 下添加混淆 当前包下全部内容
 ```log
--keep class !com.opt.libb.**,**{*;}
+-keep class !com.opt.library_module.**,**{*;}
 ```
 
 * 结果
-最终生效的是app 内配置的规则
+最终生效的是app 内配置的规则,library_module 下的类被混淆
 
 
