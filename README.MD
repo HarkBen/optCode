@@ -2,7 +2,6 @@
 
 ### 四大组件，View 默认已忽略
 
-###
 
 ### 静态依赖 lib>host 测试
 * 全部关闭混淆 ：不混淆
@@ -17,3 +16,12 @@
       return "AppInfo(name=" + this.name + ", versionName=" + this.versionName + ")";
    }
 ```
+
+### 静态依赖 lib>host 测试 consumer-rules
+
+
+
+### 混淆规则1 keep型
+
+
+### 混淆规则2

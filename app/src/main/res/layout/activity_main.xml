@@ -21,5 +21,22 @@
         android:layout_width="match_parent"
         android:text="打开WebView"
         android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btnLibBActivity"
+        android:layout_width="match_parent"
+        android:text="打开LibBActivity"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnKotlinReflection"
+        android:layout_width="match_parent"
+        android:text="btnKotlinReflection"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnJavaReflection"
+        android:layout_width="match_parent"
+        android:text="btnJavaReflection"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
