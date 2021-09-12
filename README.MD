@@ -1,6 +1,10 @@
 # 混淆规则示范
 
-Gradle plugin 3.4.0  之后 已 使用  R8 编译器协同工作，简单理解为 比proguard优化更好
+Gradle plugin 3.4.0  之后 已 使用  R8 编译器协同工作
+
+就混淆工作而言，可以简单理解为 比proguard优化更好
+
+同事根据官方文档，使用R8之后，不应该改动默认
 
 
 ### 四大组件，View 默认已忽略
@@ -13,10 +17,7 @@ Gradle plugin 3.4.0  之后 已 使用  R8 编译器协同工作，简单理解�
 * R文件
 * native
 * Activity内的用xml的 onClick
-
-
-
-### 多module 工程的混淆配置
+* JavascriptInterface 注解修饰的函数
 
 ### 静态依赖 lib>host  混淆开关测试
 * 全部关闭混淆 ：不混淆
@@ -32,10 +33,11 @@ Gradle plugin 3.4.0  之后 已 使用  R8 编译器协同工作，简单理解�
    }
 ```
 
-
-
 ### 静态依赖 lib>host 如何单独配置混淆规则，使用 consumer-rules
-更多的是为了
+
+在 library module 下的 proguardFiles 并不会生效
+
+每个library使用 consumer-rules更多的是为了
 * 1.方便管理
 * 2.独立发布与 静态依赖使用一个配置即可
 
@@ -46,7 +48,12 @@ Gradle plugin 3.4.0  之后 已 使用  R8 编译器协同工作，简单理解�
 proguard-android-optimize.pro 来自 proguard-android-optimize.txt
 
 
-### 混淆规则1 keep型
+
+### 混淆规则1 开白型
+
+以 -keep 关键字开头，默认全部混淆，除了被keep的类或成员
 
 
-### 混淆规则2
+
+### 混淆规则2 拉黑型
+
