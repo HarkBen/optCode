@@ -20,12 +20,12 @@ android {
     buildTypes {
 
         debug {
-            minifyEnabled false
+            minifyEnabled true
 //            getDefaultProguardFile('proguard-android-optimize.txt') 不可以用在 consumerProguardFiles中
             //传递（将被静态依赖的host app 合并）
 //            consumerProguardFiles  'proguard-rules.pro'
             //不传递
-//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles 'proguard-rules.pro'
         }
     }
     compileOptions {

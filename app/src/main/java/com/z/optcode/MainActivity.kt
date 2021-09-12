@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(vb.root)
-
+        vb.tv.text = "time${System.currentTimeMillis()/1000}"
         vb.btnWebView.setOnClickListener {
             startActivity(Intent(this,WebViewActivity::class.java))
         }
