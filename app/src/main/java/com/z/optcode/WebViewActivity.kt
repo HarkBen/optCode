@@ -16,14 +16,20 @@ class WebViewActivity:AppCompatActivity() {
         vb.webView.loadUrl("https://www.baidu.com")
         vb.webView.addJavascriptInterface(JSBridge(),"JSBridge")
 
+        val jsb = JSBridge()
+        jsb.function3().log("")
     }
 
     private class JSBridge{
         @JavascriptInterface
-        fun log(){}
+        fun function1(){}
 
         @JavascriptInterface
-        fun finish(){}
+        fun function2(){}
+
+        fun function3():String{
+            return "function3"
+        }
     }
 
 }
