@@ -13,7 +13,7 @@ Gradle plugin 3.4.0  之后 已 使用  R8 编译器协同工作
 >位于Android\Sdk\tools\proguard
 >需要仔细阅读 其已经配置的规则
 主要需要注意的是：
-* enum
+* enum 类
 * R文件
 * native
 * Activity内的用xml的 onClick
@@ -51,7 +51,7 @@ proguard-android-optimize.pro 来自 proguard-android-optimize.txt
 
 ### 混淆规则1 开白型
 
-以 -keep 关键字开头，默认全部混淆，除了被keep的类或成员
+以 -keep 关键字开头，除了被keep的类或成员 其余全部混淆
 
 
 
