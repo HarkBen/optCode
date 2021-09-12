@@ -99,7 +99,7 @@ proguard-android-optimize.pro 来自 proguard-android-optimize.txt
 * 结果
 最终生效的是app 内配置的规则,library_module 下的类被混淆
 
-### 对于library_module 进度独立发布时，混淆配置的方式
+### 对于 library_module 进度独立发布时，混淆配置的方式
 
 对debug 开启混淆：minifyEnabled true
 
@@ -115,4 +115,34 @@ proguard-android-optimize.pro 来自 proguard-android-optimize.txt
 
 **但是 View的子类并未被保留**
 
-* 配置为  ，执行 assembleDebug
+* 配置为 consumerProguardFiles ，执行 assembleDebug
+
+除了Activity ，view，-keep的类都被混淆。规则文件未生效
+
+对于library module单独编译为aar时（发布maven同理） 需要使用 proguardFiles
+
+同时发现连View的子类都被混淆了~ 这可麻烦了
+
+### 坑爹总结
+
+* app module 编译 apk 只会保留在xml 有引用的View
+* library_module 编译 aar，View 需要自己配
+
+纠结于library_module 编译 aar 相比较app module 编译 apk 到底有哪些默认混淆不被支持
+
+实在太多了，而且不利于即时维护，与其容易考虑不全，倒不如在proguard-android-optimize.pro 进行安全的全类别补充
+
+比如View 补充
+```log
+-keep class * extends android.view.View
+```
+
+个人推荐
+* 1.将proguard-android-optimize.pro放于根目录，在其中补充配置通用规则，从 app 到library 都可以使用
+* 2.proguard-rules.pro 中配置业务相关规则，比如data，反射的类，特殊开发API等
+* 3.放弃 consumer-rules.pro的使用
+
+这样可以保证无论是静态打包apk，还是独立发布aar，都具备安全可统一管理的通用规则
+
+
+

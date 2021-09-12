@@ -83,3 +83,5 @@
 -keepclasseswithmembers class * {
     @android.support.annotation.Keep <init>(...);
 }
+
+-keep class * extends android.view.View

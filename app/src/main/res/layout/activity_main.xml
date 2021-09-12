@@ -17,10 +17,10 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.z.optcode.CustomView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        />
+<!--    <com.z.optcode.CustomView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        />-->
     <Button
         android:id="@+id/btnWebView"
         android:layout_width="match_parent"
