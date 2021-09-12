@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.google.gson.Gson
 import com.opt.libb.utils.LibBUtils
 import com.opt.libb.data.LibBInfo
+import com.z.optcode.data.AppInfo
 import com.z.optcode.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -22,16 +23,22 @@ class MainActivity : AppCompatActivity() {
         }
         LibBUtils.fileLog()
         LibBUtils.showToast("showToast")
-
+        jsonHost()
         jsonB()
 
     }
 
+    private fun jsonHost(){
+        val jsonA  = "{\"name\":\"LibBInfo\",\"versionName\":\"1.0\"}"
+        jsonA.log("jsonHost")
+        val appInfoG = gson.fromJson(jsonA,AppInfo::class.java)
+        appInfoG.toString().log("jsonHost")
+    }
+
     private fun jsonB(){
-        val libBInfo = LibBInfo("LibBInfo",1)
-        val jsonA  = gson.toJson(libBInfo)
-        jsonA.log("lib-b")
+        val jsonA  = "{\"age\":1,\"name\":\"LibBInfo\"}"
+        jsonA.log("jsonB")
         val libaG = gson.fromJson(jsonA,LibBInfo::class.java)
-        libaG.toString().log("lib-b")
+        libaG.toString().log("jsonB ")
     }
 }

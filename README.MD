@@ -2,4 +2,11 @@
 
 ### 四大组件，View 默认已忽略
 
-### host 与lib 都使用 proguard-rules 文件
+###
+
+### 静态依赖 lib>host 测试
+* 全部关闭混淆 ：不混淆
+
+* lib 开启,host 关闭：全部不混淆
+
+* lib 关闭,host 开启：全混淆
