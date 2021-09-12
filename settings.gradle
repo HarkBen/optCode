@@ -1,0 +1,4 @@
+include ':libb'
+include ':liba'
+include ':app'
+rootProject.name = "optCode"
