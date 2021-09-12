@@ -1,9 +1,9 @@
-package com.opt.liba.utils
+package com.opt.libb.utils
 
 import android.content.Context
 import android.widget.Toast
 
-object LibAUtils {
+object LibBUtils {
 
     fun fileLog(){
 

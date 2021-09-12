@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.gson.Gson
 import com.opt.liba.data.LibAInfo
+import com.opt.libb.utils.LibBUtils
 import com.opt.libb.data.LibBInfo
 import com.z.optcode.databinding.ActivityMainBinding
 
@@ -21,12 +22,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this,WebViewActivity::class.java))
         }
 
-        jsonA()
+        LibBUtils.fileLog()
+        LibBUtils.showToast(this,"LibAUtils")
+//        jsonA()
 
         jsonB()
 
     }
-    fun jsonA(){
+    private fun jsonA(){
         val libAInfo = LibAInfo("LibAInfo",1)
         val jsonA  = gson.toJson(libAInfo)
         jsonA.log("lib-a")

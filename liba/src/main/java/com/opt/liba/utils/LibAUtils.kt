@@ -1,7 +1,6 @@
 package com.opt.liba.utils
 
-import android.content.Context
-import android.widget.Toast
+import android.util.Log
 
 object LibAUtils {
 
@@ -9,7 +8,7 @@ object LibAUtils {
 
     }
 
-    fun showToast(context:Context,msg:String){
-        Toast.makeText(context,msg,Toast.LENGTH_SHORT).show()
+    fun showToast(msg:String){
+       Log.i("LibAUtils",msg)
     }
 }
